@@ -1,0 +1,55 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "# Описание сервиса, реализующего функционал приема запросов.",
+    "title": "Service for Sreda Talents.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8091",
+  "paths": {
+    "/api/request": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "summary": "Send request to server.",
+        "operationId": "ProcessRequest",
+        "parameters": [
+          {
+            "description": "parameters for report",
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/IterationEntry"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "IterationEntry": {
+      "type": "object",
+      "title": "IterationEntry структура для итерации.",
+      "properties": {
+        "iteration": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Iteration"
+        }
+      },
+      "x-go-package": "_/Users/viktorkyarginsky/Work/examples/sreda_exercise/internal/models"
+    }
+  }
+}

@@ -9,6 +9,25 @@ import (
 )
 
 func ProcessRequest(log *slog.Logger) http.HandlerFunc {
+	// swagger:operation POST /api/request ProcessRequest
+	// Send request to server.
+	// ---
+	// produces:
+	// - application/json
+	// parameters:
+	//   - name: Body
+	//     in: body
+	//     description: parameters for report
+	//     schema:
+	//       "$ref": "#/definitions/IterationEntry"
+	//     required: true
+	// responses:
+	//	'200':
+	//	   description: OK
+	//	'400':
+	//	   description: Bad Request Error
+	//	'418':
+	//	   description: I'm a teapot
 	return func(w http.ResponseWriter, r *http.Request) {
 		var entry models.IterationEntry
 		decoder := json.NewDecoder(r.Body)
