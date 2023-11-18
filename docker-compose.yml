@@ -1,0 +1,22 @@
+version: '3.9'
+
+networks:
+  sreda-net:
+
+services:
+  mock_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mock_server
+    networks:
+      - sreda-net
+    ports:
+      - "8091:8091"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - MOCK_SERVER_ENV=prod
+volumes:
+  data_source:
+    driver: local

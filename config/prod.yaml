@@ -1,0 +1,6 @@
+env: "prod"
+version: "1.0.0"
+url: http://localhost:8091
+requests:
+  amount: 1000
+  per_second: 10
